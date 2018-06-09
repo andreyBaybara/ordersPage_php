@@ -25,15 +25,18 @@ class OrdersController extends Controller
 
     public function ajaxGetOrders(Request $request)
     {
-        \Log::alert($request);
-
         $query = Order::query();
-
         if(!empty($request->input('startDate')))
+           $query->where('order_add_time', '>=', date('Y-m-d', strtotime($request->input('startDate'))) );
+        if(!empty($request->input('endDate')))
+            $query->where('order_add_time', '<=', date('Y-m-d', strtotime($request->input('endDate'))) );
+        if(!empty($request->input('order_client_phone')))
+            $query->where('order_client_phone', 'like', '%'.$request->input('order_client_phone').'%');
+        if(!empty($request->input('id')))
+            $query->where('id', '=', $request->input('id'));
+        if(!empty($request->input('order_state')))
+            $query->where('order_state', '=', $request->input('order_state'));
 
-
-
-        $data = Order::all();
-        return Response::json($data);
+        return Response::json($query->with('goods.adverts')->with('states')->get());
     }
 }

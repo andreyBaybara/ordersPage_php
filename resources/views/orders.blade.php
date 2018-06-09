@@ -114,8 +114,10 @@
                                     value.order_add_time ,
                                     value.order_client_name,
                                     value.order_client_phone,
-                                    value.order_good,
-                                    value.order_state
+                                    value.goods.good_name+ "<br>("+value.goods.adverts.user_first_name +" "
+                                    +value.goods.adverts.user_last_name+")"+"<br>"+value.goods.adverts.user_login
+                                    ,
+                                    value.states.state_name
                                 ]
                             ).draw();
                         });
@@ -135,14 +137,7 @@
 @endsection
 
 
-{{--value.id,--}}
-{{--value.order_add_time ,--}}
-{{--value.order_client_name,--}}
-{{--value.order_client_phone,--}}
-{{--value.goods.good_name+ "<br>("+value.goods.adverts.user_first_name +" "--}}
-{{--+value.goods.adverts.user_last_name+")"+"<br>"+value.goods.adverts.user_login--}}
-{{--,--}}
-{{--value.states.state_name--}}
+
 
 
 
