@@ -14,10 +14,12 @@
 Route::group(['middleware'=>'auth'], function (){
     Route::get('/','OrdersController@getOrders')->name('orders');
     Route::get('/products','ProductsController@getProducts')->name('products');
-    Route::get('/ajaxGetOrders','OrdersController@ajaxGetOrders')->name('ajax');
+    Route::get('/ajaxGetOrders','OrdersController@ajaxGetOrders')->name('ajaxGetOrders');
 });
 
 Auth::routes();
+
+
 
 
 
