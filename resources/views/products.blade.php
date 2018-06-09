@@ -28,17 +28,4 @@
             </tbody>
         </table>
     </div>
-    </div>
-
-@endsection
-
-@section('scripts')
-    <script>
-        $(document).ready(function () {
-            $("#productsTable").dataTable({
-                    "paging": true
-                }
-            );
-        });
-    </script>
 @endsection

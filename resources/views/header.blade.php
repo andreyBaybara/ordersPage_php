@@ -6,3 +6,4 @@
         <a class="nav-link" href="{{route('products')}}">Товары</a>
     </li>
 </ul>
+

@@ -69,8 +69,20 @@
 
     <div class="container">
         @include('header')
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+        @if ($errors->all())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
         @yield('content')
-        @yield('scripts')
+        @include('scriptsAction')
     </div>
 </div>
 
