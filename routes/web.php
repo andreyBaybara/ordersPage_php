@@ -15,6 +15,8 @@ Route::group(['middleware'=>'auth'], function (){
     Route::get('/','OrdersController@getOrders')->name('orders');
     Route::get('/products','ProductsController@getProducts')->name('products');
     Route::get('/ajaxGetOrders','OrdersController@ajaxGetOrders')->name('ajaxGetOrders');
+    Route::get('/edit/{id}','EditProductController@getEditProduct')->name('getEditProduct');
+    Route::post('/edit','EditProductController@postEditProduct')->name('postEditProduct');
 });
 
 Auth::routes();

@@ -10,6 +10,7 @@
                 <th>Название</th>
                 <th>Цена</th>
                 <th>Рекламодатель</th>
+                <th>Операции</th>
             </tr>
             </thead>
             <tbody id="tbodyProducts">
@@ -21,6 +22,7 @@
                         <td>{{$product->good_price}}</td>
                         <td>{!!$product->adverts->user_first_name.' '.$product->adverts->user_last_name.'<br>'
                         .$product->adverts->user_login !!}</td>
+                        <td><a href="{{"edit/".$product->id}}">Редактировать</a></td>
                     </tr>
                 @endforeach
             </tbody>
