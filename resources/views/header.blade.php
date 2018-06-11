@@ -7,3 +7,9 @@
     </li>
 </ul>
 
+<script>
+    // Shorthand for $( document ).ready()
+    $(function() {
+
+    });
+</script>

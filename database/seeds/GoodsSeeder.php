@@ -3,7 +3,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\Good;
+use App\Models\Good;
 
 class goodsSeeder extends Seeder
 {

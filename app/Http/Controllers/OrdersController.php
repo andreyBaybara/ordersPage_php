@@ -6,8 +6,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-use App\State;
-use App\Order;
+use App\Models\State;
+use App\Models\Order;
 
 
 
@@ -36,6 +36,12 @@ class OrdersController extends Controller
             $query->where('id', '=', $request->input('id'));
         if(!empty($request->input('order_state')))
             $query->where('order_state', '=', $request->input('order_state'));
+        $goodName = $request->input('order_good');
+        if(!empty($goodName)){
+            $query->whereHas('goods',function($q) use ($goodName){
+                $q->where('good_name','like','%'.$goodName.'%');
+            });
+        }
 
         return Response::json($query->with('goods.adverts')->with('states')->get());
     }

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EditProductFormRequest;
 use Illuminate\Http\Request;
-use App\Good;
-use App\Advert;
+use App\Models\Good;
+use App\Models\Advert;
 
 class EditProductController extends Controller
 {
@@ -13,21 +13,24 @@ class EditProductController extends Controller
     {
         $adverts = [];
         $product = Good::whereKey($id)->first();
+//        $data = Advert::select(
+//            'user_first_name',
+//            'user_last_name',
+//            'user_login')->get();
         $data = Advert::select(
-            'user_first_name',
-            'user_last_name',
-            'user_login')->get();
+            \DB::raw('CONCAT(user_first_name, ", ", user_last_name,CHAR(13),user_login) AS full_name'), 'id')->get()->pluck('full_name', 'id');
+        \Log::alert($data);
 
-        $key = 1;
-        foreach ($data as $value)
-        {
-            $adverts[$key] = $value->user_first_name." ".$value->user_last_name."/n".$value->user_login;
-            $key += 1;
-        }
+//        $key = 1;
+//        foreach ($data as $value)
+//        {
+//            $adverts[$key] = $value->user_first_name." ".$value->user_last_name."/n".$value->user_login;
+//            $key += 1;
+//        }
 
         return view('editProducts', [
             'product' => $product,
-            'adverts' => $adverts
+            'adverts' => $data
         ]);
     }
 
