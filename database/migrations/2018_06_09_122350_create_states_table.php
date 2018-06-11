@@ -15,8 +15,8 @@ class CreateStatesTable extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('state_name');
-            $table->string('state_slug');
+            $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
     }

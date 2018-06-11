@@ -18,7 +18,7 @@ class ProductsController extends Controller
             \DB::raw('CONCAT(user_first_name, ", ", user_last_name,CHAR(13),user_login) AS full_name'), 'id')->get()->pluck('full_name', 'id');
         \Log::alert($data);
 
-        return view('editProducts', [
+        return view('Frontend\Controllers\ProductsController\editProducts', [
             'product' => $product,
             'adverts' => $data
         ]);
@@ -33,12 +33,11 @@ class ProductsController extends Controller
     }
 
 
-
     public function getProducts()
     {
         $products = Good::with('adverts')->get();
 
-        return view('products', [
+        return view('Frontend\Controllers\ProductsController\products', [
             'products' => $products
         ]);
     }

@@ -18,7 +18,7 @@ class OrdersController extends Controller
         $order_state = State::pluck('state_name')->toArray();
         array_unshift($order_state, "Все");
 
-        return view('orders', [
+        return view('Frontend\Controllers\OrdersController\orders', [
             'order_state' => $order_state
         ]);
     }

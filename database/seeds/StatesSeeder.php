@@ -28,8 +28,8 @@ class statesSeeder extends Seeder
 
             State::create(
                 [
-                    'state_name' =>  $stateNameRus[$i],
-                    'state_slug' => $stateNameEng[$i]
+                    'name' =>  $stateNameRus[$i],
+                    'slug' => $stateNameEng[$i]
                 ]
 
             );

@@ -15,10 +15,10 @@ class CreateAdvertsTable extends Migration
     {
         Schema::create('adverts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_first_name');
-            $table->string('user_last_name');
-            $table->string('user_login');
-            $table->string('user_password');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('login');
+            $table->string('password');
             $table->timestamps();
         });
     }

@@ -23,11 +23,11 @@ class ordersSeeder extends Seeder
         {
             Order::create(
                 [
-                    'order_state' =>  random_int(1, 3),
-                    'order_add_time' => $faker->dateTime($max = 'now', $timezone = null),
-                    'order_good' => $i,
-                    'order_client_phone' => $faker->phoneNumber(),
-                    'order_client_name' => $faker->name()
+                    'state_id' =>  random_int(1, 3),
+                    'add_time' => $faker->dateTime($max = 'now', $timezone = null),
+                    'good_id' => $i,
+                    'client_phone' => $faker->phoneNumber(),
+                    'client_name' => $faker->name()
                 ]
 
             );

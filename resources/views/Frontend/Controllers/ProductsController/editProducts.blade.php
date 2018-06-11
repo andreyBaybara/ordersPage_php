@@ -1,7 +1,7 @@
 @extends('layouts.mainApp')
 
 @section('content')
-    {{ Form::open(array('url' => action('EditProductController@postEditProduct'), 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal ch_form')) }}
+    {{ Form::open(array('url' => action('ProductsController@postEditProduct'), 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal ch_form')) }}
 
     {{ Form::label('id', 'ID:') }}
     {{ Form::text('id', $product->id, array(

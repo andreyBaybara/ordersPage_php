@@ -22,10 +22,10 @@ class advertsSeeder extends Seeder
         {
             Advert::create(
                 [
-                    'user_first_name' =>  $faker->firstName(),
-                    'user_last_name' => $faker->lastName(),
-                    'user_login' => $faker->email(),
-                    'user_password' => $faker->password()
+                    'first_name' =>  $faker->firstName(),
+                    'last_name' => $faker->lastName(),
+                    'login' => $faker->email(),
+                    'password' => $faker->password()
                 ]
 
             );

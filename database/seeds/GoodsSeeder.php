@@ -23,9 +23,9 @@ class goodsSeeder extends Seeder
         {
             Good::create(
                 [
-                    'good_name' =>  $faker->firstName(),
-                    'good_price' => $faker->randomFloat(2, 200, 10000 ),
-                    'good_advert' => $i
+                    'name' =>  $faker->firstName(),
+                    'price' => $faker->randomFloat(2, 200, 10000 ),
+                    'advert_id' => $i
                 ]
 
             );
