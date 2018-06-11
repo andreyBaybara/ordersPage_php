@@ -36,13 +36,13 @@
                         table.row.add(
                             [
                                 value.id,
-                                value.order_add_time ,
-                                value.order_client_name,
-                                value.order_client_phone,
-                                value.goods.good_name+ "<br>("+value.goods.adverts.user_first_name +" "
-                                +value.goods.adverts.user_last_name+")"+"<br>"+value.goods.adverts.user_login
+                                value.add_time ,
+                                value.client_name,
+                                value.client_phone,
+                                value.goods.name+ "<br>("+value.goods.adverts.first_name +" "
+                                +value.goods.adverts.last_name+")"+"<br>"+value.goods.adverts.login
                                 ,
-                                value.states.state_name
+                                value.states.name
                             ]
                         ).draw();
                     });
@@ -59,11 +59,5 @@
         getOrders();
     });
 </script>
-<script>
-    $('.nav-link').on('click', function () {
-        // alert();
-        for(var i = 0; i<1000; i++)
-            console.log("asd");
-    });
-</script>
+
 

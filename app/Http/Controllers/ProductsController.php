@@ -15,7 +15,7 @@ class ProductsController extends Controller
         $product = Good::whereKey($id)->first();
 
         $data = Advert::select(
-            \DB::raw('CONCAT(user_first_name, ", ", user_last_name,CHAR(13),user_login) AS full_name'), 'id')->get()->pluck('full_name', 'id');
+            \DB::raw('CONCAT(first_name, ", ", last_name,CHAR(13),login) AS full_name'), 'id')->get()->pluck('full_name', 'id');
         \Log::alert($data);
 
         return view('Frontend\Controllers\ProductsController\editProducts', [
@@ -27,7 +27,7 @@ class ProductsController extends Controller
     public function postEditProduct(EditProductFormRequest $request)
     {
         $good = Good::find($request->input('id'));
-        $good->fill($request->only(['good_name', 'good_price', 'good_advert'])) ->save();
+        $good->fill($request->only(['name', 'price', 'advert_id'])) ->save();
 
         return redirect()->route('products')->with('status', 'Done');
     }

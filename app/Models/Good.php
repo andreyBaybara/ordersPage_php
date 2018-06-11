@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Good extends Model
 {
-    protected $fillable = ['good_name', 'good_price', 'good_advert'];
+    protected $fillable = ['name', 'price', 'advert_id'];
 
     public function adverts()
     {
-        return $this->hasOne(Advert::class, 'id', 'good_advert');
+        return $this->hasOne(Advert::class, 'id', 'advert_id');
     }
 }

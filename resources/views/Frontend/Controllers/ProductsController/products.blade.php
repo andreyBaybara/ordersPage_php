@@ -18,10 +18,10 @@
                     <tr>
                         <td><input type="checkbox"></td>
                         <td>{{$product->id}}</td>
-                        <td>{{$product->good_name}}.<br> Внешний ID .{{$product->id}}</td>
-                        <td>{{$product->good_price}}</td>
-                        <td>{!!$product->adverts->user_first_name.' '.$product->adverts->user_last_name.'<br>'
-                        .$product->adverts->user_login !!}</td>
+                        <td>{{$product->name}}.<br> Внешний ID .{{$product->id}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>{!!$product->adverts->first_name.' '.$product->adverts->last_name.'<br>'
+                        .$product->adverts->login !!}</td>
                         <td><a href="{{"edit/".$product->id}}">Редактировать</a></td>
                     </tr>
                 @endforeach

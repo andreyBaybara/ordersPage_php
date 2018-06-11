@@ -15,7 +15,7 @@ class OrdersController extends Controller
 {
     public function getOrders()
     {
-        $order_state = State::pluck('state_name')->toArray();
+        $order_state = State::pluck('name')->toArray();
         array_unshift($order_state, "Все");
 
         return view('Frontend\Controllers\OrdersController\orders', [
@@ -27,19 +27,19 @@ class OrdersController extends Controller
     {
         $query = Order::query();
         if(!empty($request->input('startDate')))
-           $query->where('order_add_time', '>=', date('Y-m-d', strtotime($request->input('startDate'))) );
+           $query->where('add_time', '>=', date('Y-m-d', strtotime($request->input('startDate'))) );
         if(!empty($request->input('endDate')))
-            $query->where('order_add_time', '<=', date('Y-m-d', strtotime($request->input('endDate'))) );
-        if(!empty($request->input('order_client_phone')))
-            $query->where('order_client_phone', 'like', '%'.$request->input('order_client_phone').'%');
+            $query->where('add_time', '<=', date('Y-m-d', strtotime($request->input('endDate'))) );
+        if(!empty($request->input('client_phone')))
+            $query->where('client_phone', 'like', '%'.$request->input('client_phone').'%');
         if(!empty($request->input('id')))
             $query->where('id', '=', $request->input('id'));
-        if(!empty($request->input('order_state')))
-            $query->where('order_state', '=', $request->input('order_state'));
-        $goodName = $request->input('order_good');
+        if(!empty($request->input('state_id')))
+            $query->where('state_id', '=', $request->input('state_id'));
+        $goodName = $request->input('good_id');
         if(!empty($goodName)){
             $query->whereHas('goods',function($q) use ($goodName){
-                $q->where('good_name','like','%'.$goodName.'%');
+                $q->where('name','like','%'.$goodName.'%');
             });
         }
 

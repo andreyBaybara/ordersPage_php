@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\State;
+use App\Models\State;
 
 class statesSeeder extends Seeder
 {

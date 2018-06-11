@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\Advert;
+use App\Models\Advert;
 
 class advertsSeeder extends Seeder
 {

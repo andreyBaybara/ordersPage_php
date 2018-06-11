@@ -7,8 +7,8 @@
 
             <div class="row ">
                 {{ Form::label('startDate', 'От:', ['class' => 'col-sm-2'] ) }}
-                {{ Form::label('endtDate', 'До:', ['class' => 'col-sm-2']) }}
-                {{ Form::label('order_state', 'Статус', ['class' => 'col-sm-2']) }}
+                {{ Form::label('endDate', 'До:', ['class' => 'col-sm-2']) }}
+                {{ Form::label('state_id', 'Статус', ['class' => 'col-sm-2']) }}
             </div>
             <div class="row">
                 {{ Form::text('startDate', null, array(
@@ -22,24 +22,24 @@
                     'class' => 'form-control col-sm-1 col-sm-offset-2 ajaxRequest'
                 )) }}
                 <div class="col-sm-1">&nbsp;</div>
-                {{ Form::select('order_state', $order_state)}}
+                {{ Form::select('state_id', $order_state)}}
             </div>
 
             <div class="row">
-                {{ Form::label('order_state', 'Телефон', ['class' => 'col-sm-3']) }}
-                {{ Form::label('order_good', 'Товар', ['class' => 'col-sm-2']) }}
+                {{ Form::label('state_id', 'Телефон', ['class' => 'col-sm-3']) }}
+                {{ Form::label('good_id', 'Товар', ['class' => 'col-sm-2']) }}
                 {{ Form::label('id', 'ID заказа', ['class' => 'col-sm-2']) }}
             </div>
 
             <div class="row">
-                {{ Form::text('order_client_phone', null, array(
-                'name' => 'order_client_phone',
+                {{ Form::text('client_phone', null, array(
+                'name' => 'client_phone',
                 'class' => 'form-control col-sm-2 ajaxRequest'
                 )) }}
                 <div class="col-sm-1">&nbsp;</div>
 
-                {{ Form::text('order_good', null, array(
-                'name' => 'order_good',
+                {{ Form::text('good_id', null, array(
+                'name' => 'good_id',
                 'class' => 'form-control col-sm-1 ajaxRequest'
                 )) }}
                 <div class="col-sm-1">&nbsp;</div>

@@ -9,16 +9,16 @@
         'readonly'=>'readonly'
     )) }}
 
-    {{ Form::label('good_advert', 'Рекламодатель:') }}
+    {{ Form::label('advert_id', 'Рекламодатель:') }}
     <br>
-    {{ Form::select('good_advert', $adverts, array('class' => 'form-control col-sm-4')) }}
+    {{ Form::select('advert_id', $adverts, array('class' => 'form-control col-sm-4')) }}
     <br>
-    {{ Form::label('good_name', 'Название:') }}
-    {{ Form::text('good_name', $product->good_name, array('class' => 'form-control col-sm-4')) }}
+    {{ Form::label('name', 'Название:') }}
+    {{ Form::text('name', $product->name, array('class' => 'form-control col-sm-4')) }}
 
 
-    {{ Form::label('good_price', 'Цена:') }}
-    {{ Form::text('good_price', $product->good_price, array('class' => 'form-control col-sm-4')) }}
+    {{ Form::label('price', 'Цена:') }}
+    {{ Form::text('price', $product->price, array('class' => 'form-control col-sm-4')) }}
 
 
     {{Form::submit('Save')}}

@@ -9,11 +9,11 @@ class Order extends Model
 {
     public function goods()
     {
-        return $this->hasOne(Good::class, 'id', 'order_good');
+        return $this->hasOne(Good::class, 'id', 'good_id');
     }
 
     public function states()
     {
-        return $this->hasOne(State::class, 'id', 'order_state');
+        return $this->hasOne(State::class, 'id', 'state_id');
     }
 }
