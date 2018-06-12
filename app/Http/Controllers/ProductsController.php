@@ -16,11 +16,11 @@ class ProductsController extends Controller
 
         $data = Advert::select(
             \DB::raw('CONCAT(first_name, ", ", last_name,CHAR(13),login) AS full_name'), 'id')->get()->pluck('full_name', 'id');
-        \Log::alert($data);
 
         return view('Frontend\Controllers\ProductsController\editProducts', [
             'product' => $product,
-            'adverts' => $data
+            'adverts' => $data,
+            'navigation_id' =>'products'
         ]);
     }
 
@@ -38,7 +38,8 @@ class ProductsController extends Controller
         $products = Good::with('adverts')->get();
 
         return view('Frontend\Controllers\ProductsController\products', [
-            'products' => $products
+            'products' => $products,
+            'navigation_id' =>'products'
         ]);
     }
 }

@@ -23,7 +23,7 @@
     });
 
     function getOrders() {
-        var data = $('.ajaxRequest, #order_state').serialize();
+        var data = $('.ajaxRequest, #state_id').serialize();
         $.ajax(
             {
                 type: 'GET',
@@ -61,3 +61,7 @@
 </script>
 
 
+<script>
+    // Shorthand for
+    $('#{{$navigation_id}}').addClass('active');
+</script>

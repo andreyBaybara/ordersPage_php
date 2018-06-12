@@ -15,16 +15,18 @@ class OrdersController extends Controller
 {
     public function getOrders()
     {
-        $order_state = State::pluck('name')->toArray();
-        array_unshift($order_state, "Все");
+        $order_state = array(0 => 'Все');
+        $order_state += State::pluck('name', 'id')->toArray();
 
         return view('Frontend\Controllers\OrdersController\orders', [
-            'order_state' => $order_state
+            'order_state' => $order_state,
+            'navigation_id' =>'orders'
         ]);
     }
 
     public function ajaxGetOrders(Request $request)
     {
+       // \Log::alert($request->toArray());
         $query = Order::query();
         if(!empty($request->input('startDate')))
            $query->where('add_time', '>=', date('Y-m-d', strtotime($request->input('startDate'))) );
@@ -34,8 +36,9 @@ class OrdersController extends Controller
             $query->where('client_phone', 'like', '%'.$request->input('client_phone').'%');
         if(!empty($request->input('id')))
             $query->where('id', '=', $request->input('id'));
-        if(!empty($request->input('state_id')))
+        if($request->input('state_id') != 0)
             $query->where('state_id', '=', $request->input('state_id'));
+
         $goodName = $request->input('good_id');
         if(!empty($goodName)){
             $query->whereHas('goods',function($q) use ($goodName){

@@ -1,15 +1,9 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="{{route('orders')}}">Заказы</a>
+        <a id="orders" class="nav-link" href="{{route('orders')}}">Заказы</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('products')}}">Товары</a>
+        <a id="products" class="nav-link" href="{{route('products')}}">Товары</a>
     </li>
 </ul>
 
-<script>
-    // Shorthand for $( document ).ready()
-    $(function() {
-
-    });
-</script>

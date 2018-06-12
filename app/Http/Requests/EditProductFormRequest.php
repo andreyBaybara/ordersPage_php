@@ -24,9 +24,9 @@ class EditProductFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'good_advert' => 'required',
-            'good_name' => 'required|alpha_dash',
-            'good_price' => 'required|numeric',
+            'advert_id' => 'required',
+            'name' => 'required|alpha_dash',
+            'price' => 'required|numeric',
         ];
     }
 }
